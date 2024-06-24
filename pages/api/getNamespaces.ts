@@ -25,10 +25,9 @@ const getNamespaces = async (req: NextApiRequest, res: NextApiResponse) => {
     };
 
     const indexStatsResponse = await index.describeIndexStats(
-      describeIndexStatsQuery,
     );
     const namespaces = Object.keys(
-      indexStatsResponse.namespaces as { [key: string]: NamespaceSummary },
+      indexStatsResponse.namespaces as unknown as { [key: string]: NamespaceSummary },
     );
 
     res.status(200).json(namespaces);

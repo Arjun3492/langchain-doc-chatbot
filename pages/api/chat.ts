@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { FakeEmbeddings } from 'langchain/embeddings/fake';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { makeChain } from '@/utils/makechain';
 import { initPinecone } from '@/utils/pinecone-client';
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
 
 export default async function handler(
   req: NextApiRequest,
@@ -44,7 +44,9 @@ export default async function handler(
     const index = pinecone.Index(targetIndex as string);
 
     const vectorStore = await PineconeStore.fromExistingIndex(
-      new FakeEmbeddings(),
+      new OpenAIEmbeddings({
+        apiKey: openAIapiKey as string
+      }),
       {
         pineconeIndex: index,
         textKey: 'text',

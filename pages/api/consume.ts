@@ -1,5 +1,4 @@
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
-import { FakeEmbeddings } from 'langchain/embeddings/fake';
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
@@ -47,7 +46,10 @@ export default async function handler(
     const docs = await textSplitter.splitDocuments(rawDocs);
 
     // OpenAI embeddings for the document chunks
-    const embeddings = new FakeEmbeddings(
+    const embeddings = new OpenAIEmbeddings(
+      {
+        apiKey: openAIapiKey as string,
+      }
     );
 
     // Get the Pinecone index with the given name

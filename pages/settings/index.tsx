@@ -223,7 +223,7 @@ export default function Settings() {
                   }
                 />
                 <KeyForm
-                  keyName="Pinecone environment"
+                  keyName="Pinecone region"
                   keyValue={pineconeEnvironment}
                   setKeyValue={(key: string) =>
                     handleKeyChange('pineconeEnvironment', key)

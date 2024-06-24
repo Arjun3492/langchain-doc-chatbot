@@ -18,6 +18,14 @@ const KeyForm: React.FC<KeyFormProps> = ({
     setKeyValue(event.target.value);
   };
 
+  const placeholderMap: {
+    [key: string]: string;
+  } = {
+    'OpenAI API Key': 'sk-...',
+    'Pinecone API Key': '05473f56-...',
+    'Pinecone region': 'us-west-1',
+    'Pinecone index name': 'index-name',
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div className="relative">
@@ -29,7 +37,7 @@ const KeyForm: React.FC<KeyFormProps> = ({
             type="password"
             value={keyValue}
             onChange={handleChange}
-            placeholder={`Enter ${keyName}`}
+            placeholder={placeholderMap[keyName]}
             className="w-full px-2 py-3 text-sm text-gray-300 placeholder-gray-500 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
