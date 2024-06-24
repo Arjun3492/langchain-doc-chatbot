@@ -21,7 +21,7 @@ export default async function handler(
 
   try {
     const index = pinecone.Index(targetIndex);
-    await index._delete({
+    await index._deleteMany({
       deleteRequest: {
         namespace,
         deleteAll: true,

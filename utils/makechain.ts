@@ -1,6 +1,7 @@
 import { OpenAI } from 'langchain/llms/openai';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { ConversationalRetrievalQAChain } from 'langchain/chains';
+import { BaseLanguageModelInterface } from 'langchain/dist/base_language';
 
 const CONDENSE_PROMPT = `Given the chat history and a follow-up question, rephrase the follow-up question to be a standalone question that encompasses all necessary context from the chat history.
 
@@ -46,7 +47,7 @@ export const makeChain = (
 
   // Configures the chain to use the QA_PROMPT and CONDENSE_PROMPT prompts and to not return the source documents
   const chain = ConversationalRetrievalQAChain.fromLLM(
-    model,
+    model as unknown as BaseLanguageModelInterface,
     vectorstore.asRetriever(),
     {
       qaTemplate: QA_PROMPT,
