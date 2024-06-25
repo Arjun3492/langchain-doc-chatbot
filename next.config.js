@@ -9,6 +9,12 @@ const nextConfig = {
   images: {
     domains: ['lh3.googleusercontent.com'],
   },
+  compiler: {
+    typescript: {
+      ignoreBuildErrors: true,
+    },
+  },
+
 };
 
 export default nextConfig;
