@@ -1,6 +1,6 @@
 import { ConversationMessage } from '@/types/ConversationMessage';
 import { useState, useMemo, useCallback } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid'
 import { useLocalStorage } from '../libs/localStorage';
 
 const useChats = (namespace: string) => {
@@ -54,7 +54,7 @@ const useChats = (namespace: string) => {
   }
 
   function createChat() {
-    const newChatId = uuidv4();
+    const newChatId = nanoid();
     const updatedAllChats = [...allChats, { namespace, chatId: newChatId }];
     setAllChats(updatedAllChats);
 

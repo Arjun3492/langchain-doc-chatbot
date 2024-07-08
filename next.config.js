@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/document-chatbot',
+  assetPrefix: '/document-chatbot',
   reactStrictMode: true,
   swcMinify: true,
   webpack(config) {

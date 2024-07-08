@@ -47,7 +47,7 @@ export default function Settings() {
 
   const fetchNamespaces = useCallback(async () => {
     try {
-      const response = await fetch(`/api/getNamespaces`, {
+      const response = await fetch(`/document-chatbot/api/getNamespaces`, {
         headers: {
           'X-Api-Key': pineconeApiKey,
           'X-Index-Name': pineconeIndexName,
@@ -86,7 +86,7 @@ export default function Settings() {
   const handleDelete = async (namespace: string) => {
     try {
       const response = await fetch(
-        `/api/deleteNamespace?namespace=${namespace}`,
+        `/document-chatbot/api/deleteNamespace?namespace=${namespace}`,
         {
           method: 'DELETE',
           headers: {
@@ -158,7 +158,7 @@ export default function Settings() {
       setLoading(true);
 
       const response = await fetch(
-        `/api/consume?namespaceName=${namespaceName}&chunkSize=${chunkSize}&overlapSize=${overlapSize}`,
+        `/document-chatbot/api/consume?namespaceName=${namespaceName}&chunkSize=${chunkSize}&overlapSize=${overlapSize}`,
         {
           method: 'POST',
           headers: {

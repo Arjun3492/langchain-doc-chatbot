@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3002",
     "type-check": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx)\" --write"
@@ -28,6 +28,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.125.0",
     "multiparty": "^4.2.3",
+    "nanoid": "^5.0.7",
     "next": "13.2.3",
     "next-auth": "^4.22.1",
     "pdf-parse": "1.1.1",
@@ -36,8 +37,7 @@
     "react-dropzone": "^14.2.3",
     "react-markdown": "^8.0.5",
     "remark-gfm": "^3.0.1",
-    "tailwind-merge": "^1.10.0",
-    "uuidv4": "^6.2.13"
+    "tailwind-merge": "^1.10.0"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.2.14",

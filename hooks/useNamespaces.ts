@@ -15,7 +15,7 @@ const useNamespaces = (
   useEffect(() => {
     const fetchNamespaces = async () => {
       try {
-        const response = await fetch(`/api/getNamespaces`, {
+        const response = await fetch(`/document-chatbot/api/getNamespaces`, {
           headers: {
             'X-Api-Key': pineconeApiKey,
             'X-Index-Name': pineconeIndexName,

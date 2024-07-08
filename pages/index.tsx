@@ -205,7 +205,7 @@ export default function Home() {
       console.error('API keys not found.');
       return;
     }
-    const response = await fetch('/api/chat', {
+    const response = await fetch('/document-chatbot/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
